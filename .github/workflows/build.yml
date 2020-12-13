@@ -11,8 +11,8 @@ jobs:
     Linux_build:
         strategy:
             matrix:
-                pic: [ "PIC", "" ]
-                os: [ "debian-buster", "ubuntu-1804", "ubuntu-2004" ]
+                pic: [ "PIC", "noPIC" ]
+                os: [ "debian-buster", "ubuntu-2004", "ubuntu-1804" ]
         runs-on: ubuntu-latest
         container:
             image: koudis/boost-build:${{ matrix.os }}
@@ -29,7 +29,7 @@ jobs:
     Macos_build:
         strategy:
             matrix:
-                pic: [ "PIC", "" ]
+                pic: [ "PIC", "noPIC" ]
                 os: [ "macos-11.0", "macos-10.15" ]
         runs-on: ${{ matrix.os }}
         steps:
@@ -41,3 +41,43 @@ jobs:
               with:
                   name: "boost"
                   path: "boost_archive/"
+
+    Release:
+        name: Create Release
+        needs: [ Linux_build, Macos_build ]
+        runs-on: ubuntu-latest
+        outputs:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+        steps:
+            - name: Create Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.event.inputs.boost_version }}
+                  release_name: Release ${{ github.event.inputs.boost_version }}
+                  body: Boost ${{ github.event.inputs.boost_version }} release 
+                  draft: true
+                  prerelease: false
+
+    Upload_release_asset:
+        name: Upload release assets
+        strategy:
+            matrix:
+                pic: [ "PIC", "noPIC" ]
+                os: [ "debian_buster", "ubuntu_2004", "ubuntu_1804", "macos_10_15", "macos_11_0"  ]
+        needs: [ Release ]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download artifacts
+              uses: actions/download-artifact@v2
+            - name: Upload Release Asset
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ needs.Release.outputs.upload_url }}
+                  asset_path: ./boost/boost-${{ github.event.inputs.boost_version }}-${{ matrix.os }}-${{ matrix.pic }}.tar.bz2
+                  asset_name: boost-${{ github.event.inputs.boost_version }}-${{ matrix.os }}-${{ matrix.pic }}.tar.bz2
+                  asset_content_type: application/gzip

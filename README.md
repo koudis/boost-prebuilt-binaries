@@ -12,6 +12,7 @@ Prebuild Boost binaries for following systems
 Archives with binaries can by found at Release page.
 
 Each OS has version with and without -fPIC flag.
-Archives distributions compile with PIC has '-PIC' in the archive name.
-Archives distributions compile without PIC has '-noPIC' in the archive name.
+
+- Distributions compiled with PIC has '-PIC' in the archive name.
+- Distributions compiled without PIC has '-noPIC' in the archive name.
 

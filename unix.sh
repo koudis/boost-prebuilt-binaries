@@ -41,9 +41,9 @@ function determine_os_name() {
 
 
 
-build_options=
-if ! [ "${WITH_PIC}" = "" ]; then
-	build_options="cxxflags=-fPIC cflags=-fPIC"
+build_options="cxxflags=-std=c++14"
+if [ "${WITH_PIC}" = "PIC" ]; then
+	build_options="${build_options} cxxflags=-fPIC cflags=-fPIC"
 fi
 
 os_name=$(determine_os_name)
@@ -74,7 +74,7 @@ pushd "${BUILD_DIR}" || exit 1
 	pushd "${ARCHIVE_DIR}" || exit 1
 		system_name_stripped=$(echo "${SYSTEM_NAME}" | sed 's/[.-]/_/g')
 		pic_suffix="noPIC"
-		if ! [ "$WITH_PIC" = "" ]; then
+		if [ "$WITH_PIC" = "PIC" ]; then
 			pic_suffix="PIC"
 		fi
 		archive_name="boost-${BOOST_VERSION}-${system_name_stripped}-${pic_suffix}.tar.bz2"

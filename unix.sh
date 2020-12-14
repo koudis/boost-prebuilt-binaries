@@ -78,6 +78,6 @@ pushd "${BUILD_DIR}" || exit 1
 			pic_suffix="PIC"
 		fi
 		archive_name="boost-${BOOST_VERSION}-${system_name_stripped}-${pic_suffix}.tar.bz2"
-		tar -jcf ${archive_name} ${SCRIPT_DIR}/boost_install/
+		tar -jcf ${archive_name} -C ${SCRIPT_DIR}/boost_install .
 	popd || exit 1
 popd || exit 1

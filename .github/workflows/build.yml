@@ -30,7 +30,7 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "macos-11.0", "macos-10.15" ]
+                os: [ "macos-10.15" ]
         runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v2
@@ -66,7 +66,7 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "debian_buster", "ubuntu_2004", "ubuntu_1804", "macos_10_15", "macos_11_0"  ]
+                os: [ "debian_buster", "ubuntu_2004", "ubuntu_1804", "macos_10_15"  ]
         needs: [ Release ]
         runs-on: ubuntu-latest
         steps:

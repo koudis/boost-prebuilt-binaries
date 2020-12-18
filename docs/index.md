@@ -19,3 +19,8 @@ Detailed documentation can be found at [repository root](https://github.com/koud
 
 If you have some questions or want to submit bugfix/feature use [Discussions](https://github.com/koudis/boost-prebuild-binaries/issues) or create a [Ticket](https://github.com/koudis/boost-prebuild-binaries/discussions)
 
+### License
+
+The repository code is released under [MIT License](https://github.com/koudis/boost-prebuild-binaries/LICENSE)
+
+Boost binaries and Boost sources are licensed under standard Boost license.

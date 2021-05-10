@@ -57,8 +57,8 @@ echo "Additional build options: ${build_options}"
 mkdir -p "${BUILD_DIR}"
 pushd "${BUILD_DIR}" || exit 1
 	boost_version_with_dots="$(echo ${BOOST_VERSION} | sed 's/_/./g' )"
-	wget https://dl.bintray.com/boostorg/release/${boost_version_with_dots}/source/boost_${BOOST_VERSION}.tar.bz2
-	tar -xf "boost_${BOOST_VERSION}.tar.bz2"
+	wget https://boostorg.jfrog.io/artifactory/main/release/${boost_version_with_dots}/source/boost_${BOOST_VERSION}.tar.gz
+	tar -xf "boost_${BOOST_VERSION}.tar.gz"
 
 	mkdir -p "${INSTALL_DIR}"
 	pushd boost_${BOOST_VERSION} || exit 1

@@ -31,7 +31,7 @@ jobs:
             matrix:
                 pic: [ "PIC", "noPIC" ]
                 os: [ "macos-11.0" ]
-        runs-on: ${{ matrix.os }}
+        runs-on: macos-latest
         steps:
             - uses: actions/checkout@v2
             - name: 'Build'

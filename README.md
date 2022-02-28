@@ -5,7 +5,7 @@ Prebuild Boost binaries for following systems
 
 - Ubuntu 18.04
 - Ubuntu 20.04
-- Debian Buste
+- Debian Buster
 - Debian Bullseye
 - Mac OS 11.0
 

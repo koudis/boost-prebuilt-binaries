@@ -7,6 +7,7 @@ Supported systems are
 - Ubuntu 18.04
 - Ubuntu 20.04
 - Debian Buster
+- Debian Bullseye
 - Mac OS 11
 
 Each Boost prebuild for each system is compiled with and without `-fPIC` compile option.

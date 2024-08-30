@@ -3,14 +3,15 @@
 
 Prebuild Boost binaries for following systems
 
-- Ubuntu 18.04 (until boost 1.79)
+- Ubuntu 18.04 (until Boost 1.79)
 - Ubuntu 20.04
 - Ubuntu 22.04
 - Ubuntu 24.04
 - Debian Buster
 - Debian Bullseye
 - Debian Bookworm
-- Mac OS 11.0
+- Mac OS 11.0 (until Boost 1.79)
+- Mac OS 14.0
 
 Archives with binaries can by found at Release page.
 

@@ -50,7 +50,7 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "debian-buster", "debian-bullseye", "debian-bookworm", "ubuntu-2004", "ubuntu-2204", "ubuntu-2404" ]
+                os: [ "debian_buster", "debian_bullseye", "debian_bookworm", "ubuntu_2004", "ubuntu_2204", "ubuntu_2404" ]
         needs: [ Release ]
         runs-on: ubuntu-latest
         steps:

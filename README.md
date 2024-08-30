@@ -11,7 +11,6 @@ Prebuild Boost binaries for following systems
 - Debian Bullseye
 - Debian Bookworm
 - Mac OS 11.0 (until Boost 1.79)
-- Mac OS 14.0
 
 Archives with binaries can by found at Release page.
 

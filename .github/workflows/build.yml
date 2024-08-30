@@ -28,7 +28,7 @@ jobs:
 
     Release:
         name: Create Release
-        needs: [ Linux_build, Macos_build ]
+        needs: [ Linux_build ]
         runs-on: ubuntu-latest
         outputs:
             upload_url: ${{ steps.create_release.outputs.upload_url }}

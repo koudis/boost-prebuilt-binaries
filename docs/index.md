@@ -4,12 +4,14 @@ Project wich aims to prebuild newest Boost for Linux and Mac OS X.
 
 Supported systems are
 
-- Ubuntu 18.04
+- Ubuntu 18.04 (until Boost 1.79)
 - Ubuntu 20.04
 - Ubuntu 22.04
+- Ubuntu 24.04
 - Debian Buster
 - Debian Bullseye
-- Mac OS 11
+- Debian Bookworm
+- Mac OS 11.0 (until Boost 1.79)
 
 Each Boost prebuild for each system is compiled with and without `-fPIC` compile option.
 

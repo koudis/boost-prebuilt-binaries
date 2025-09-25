@@ -12,7 +12,7 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "debian-buster", "debian-bullseye", "debian-bookworm", "debian-trixie", "ubuntu-2004", "fedora-42", "ubuntu-2204", "ubuntu-2404" ]
+                os: [ "debian-buster", "debian-bullseye", "debian-bookworm", "debian-trixie", "ubuntu-2004", "ubuntu-2204", "ubuntu-2404" ]
         runs-on: ubuntu-latest
         container:
             image: koudis/boost-build:${{ matrix.os }}
@@ -50,7 +50,7 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "debian_buster", "debian_bullseye", "debian_bookworm", "debian_trixie", "ubuntu_2004", "fedora_42", "ubuntu_2204", "ubuntu_2404" ]
+                os: [ "debian_buster", "debian_bullseye", "debian_bookworm", "debian_trixie", "ubuntu_2004", "ubuntu_2204", "ubuntu_2404" ]
         needs: [ Release ]
         runs-on: ubuntu-latest
         steps:

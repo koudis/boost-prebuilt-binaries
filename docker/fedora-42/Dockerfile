@@ -3,7 +3,7 @@ FROM fedora:42
 WORKDIR /root
 
 RUN dnf update -y && \
-    dnf install -y git p7zip wget gcc gcc-c++ make openssl-devel python3 python3-pip openmpi-devel curl && \
+    dnf install -y git p7zip wget gcc gcc-c++ make openssl-devel python3 python3-pip openmpi-devel curl coreutils && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash && \
     dnf install -y git-lfs && \
     git lfs install && \

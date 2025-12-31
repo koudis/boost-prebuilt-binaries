@@ -50,18 +50,21 @@ jobs:
         strategy:
             matrix:
                 pic: [ "PIC", "noPIC" ]
-                os: [ "debian_buster", "debian_bullseye", "debian_bookworm", "debian_trixie", "ubuntu_2004", "ubuntu_2204", "ubuntu_2404" ]
+                os: [ "debian-buster", "debian-bullseye", "debian-bookworm", "debian-trixie", "ubuntu-2004", "ubuntu-2204", "ubuntu-2404" ]
         needs: [ Release ]
         runs-on: ubuntu-latest
         steps:
             - name: Download artifacts
               uses: actions/download-artifact@v4
+            - name: Set OS name with underscores
+              id: os_name
+              run: echo "os_underscore=$(echo '${{ matrix.os }}' | sed 's/[.-]/_/g')" >> $GITHUB_OUTPUT
             - name: Upload Release Asset
               uses: actions/upload-release-asset@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ needs.Release.outputs.upload_url }}
-                  asset_path: ./boost-prebuilt-binaries/boost-${{ github.event.inputs.boost_version }}-${{ matrix.os }}-${{ matrix.pic }}.tar.bz2
-                  asset_name: boost-${{ github.event.inputs.boost_version }}-${{ matrix.os }}-${{ matrix.pic }}.tar.bz2
+                  asset_path: ./boost-${{ github.event.inputs.boost_version }}-${{ matrix.os }}-${{ matrix.pic }}/boost-${{ github.event.inputs.boost_version }}-${{ steps.os_name.outputs.os_underscore }}-${{ matrix.pic }}.tar.bz2
+                  asset_name: boost-${{ github.event.inputs.boost_version }}-${{ steps.os_name.outputs.os_underscore }}-${{ matrix.pic }}.tar.bz2
                   asset_content_type: application/gzip

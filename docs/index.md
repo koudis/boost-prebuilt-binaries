@@ -1,19 +1,28 @@
-## Boost prebuild binaries for Linux and Mac OS X
+## Boost prebuild binaries for Linux
 
-Project wich aims to prebuild newest Boost for Linux and Mac OS X.
+Project which aims to prebuild newest Boost for Linux.
 
 Supported systems are
 
-- Ubuntu 18.04 (until Boost 1.79)
 - Ubuntu 20.04
 - Ubuntu 22.04
 - Ubuntu 24.04
 - Debian Buster
 - Debian Bullseye
 - Debian Bookworm
+- Debian Trixie
+- Fedora 42
+- Fedora 43
+
+Not supported anymore
+
 - Mac OS 11.0 (until Boost 1.79)
+- Ubuntu 18.04 (until Boost 1.79)
 
 Each Boost prebuild for each system is compiled with and without `-fPIC` compile option.
+
+- Distributions compiled with PIC has '-PIC' in the archive name.
+- Distributions compiled without PIC has '-noPIC' in the archive name.
 
 Archive with binaries can be found at [Github Release](https://github.com/koudis/boost-prebuilt-binaries/releases)
 
@@ -21,7 +30,7 @@ Detailed documentation can be found at [repository root](https://github.com/koud
 
 ### Bug reports, feature requests and questions
 
-If you have some questions or want to submit bugfix/feature use [Discussions](https://github.com/koudis/boost-prebuilt-binaries/issues) or create a [Ticket](https://github.com/koudis/boost-prebuilt-binaries/discussions)
+If you have some questions or want to submit bugfix/feature use [Discussions](https://github.com/koudis/boost-prebuilt-binaries/discussions) or create a [Ticket](https://github.com/koudis/boost-prebuilt-binaries/issues)
 
 ### License
 

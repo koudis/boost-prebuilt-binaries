@@ -3,14 +3,20 @@
 
 Prebuild Boost binaries for following systems
 
-- Ubuntu 18.04 (until Boost 1.79)
 - Ubuntu 20.04
 - Ubuntu 22.04
 - Ubuntu 24.04
 - Debian Buster
 - Debian Bullseye
 - Debian Bookworm
+- Debian Trixie
+- Fedora 42
+- Fedora 43
+
+Not supported anymore
+
 - Mac OS 11.0 (until Boost 1.79)
+- Ubuntu 18.04 (until Boost 1.79)
 
 Archives with binaries can by found at Release page.
 
@@ -26,8 +32,6 @@ Standard system tools are used for build.
 On linux the GCC and OpenSSL is used. Linux is built by [Docker images](docker/) from this repository.
 
 On Mac OS standard clang and system ssl library is used.
-
-Build images regenerated: 30. 8. 2024 
 
 ## License
 
